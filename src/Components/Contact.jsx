@@ -1,7 +1,7 @@
-import { useGSAP } from "@gsap/react";
-import { openingHours, socials } from "../../constants";
-import { SplitText } from "gsap/all";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/all";
+import { openingHours, socials } from "../../constants";
 
 const Contact = () => {
   useGSAP(() => {
@@ -14,7 +14,9 @@ const Contact = () => {
         trigger: "#contact",
         start: "top center",
       },
-      ease: "power1.inOut",
+      defaults: {
+        ease: "power1.inOut",
+      },
     });
 
     timeline

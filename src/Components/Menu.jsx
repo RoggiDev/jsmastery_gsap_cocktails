@@ -1,7 +1,7 @@
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 import { allCocktails } from "../../constants";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 
 const Menu = () => {
   const contentRef = useRef();
@@ -9,6 +9,30 @@ const Menu = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useGSAP(() => {
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#menu",
+          start: "top-=100 top",
+          end: "bottom top",
+          scrub: true,
+        },
+      })
+      .to(
+        "#m-right-leaf",
+        {
+          y: 200,
+        },
+        0,
+      )
+      .to(
+        "#m-left-leaf",
+        {
+          y: -200,
+        },
+        0,
+      );
+
     gsap.fromTo(
       "#title",
       {

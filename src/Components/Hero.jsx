@@ -1,8 +1,8 @@
-import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/all";
-import { useRef } from "react";
 import { useMediaQuery } from "react-responsive";
+import { useRef } from "react";
 
 const Hero = () => {
   const videoRef = useRef();
@@ -12,31 +12,34 @@ const Hero = () => {
   });
 
   useGSAP(() => {
-    const heroSplit = new SplitText(".title", {
-      type: "chars, word",
-    });
+    document.fonts.ready.then(() => {
+      const heroSplit = new SplitText(".title", {
+        type: "chars, word",
+      });
 
-    const paragraphSlit = new SplitText(".subtitle", {
-      type: "lines",
-    });
+      const paragraphSlit = new SplitText(".subtitle", {
+        type: "lines",
+      });
 
-    heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
+      // Apply text-gradient class once before animating
+      heroSplit.chars.forEach((char) => char.classList.add("text-gradient"));
 
-    gsap.from(heroSplit.chars, {
-      opacity: 0,
-      yPercent: 100,
-      duration: 1.8,
-      ease: "expo.out",
-      stagger: 0.05,
-    });
+      gsap.from(heroSplit.chars, {
+        opacity: 0,
+        yPercent: 100,
+        duration: 1.8,
+        ease: "expo.out",
+        stagger: 0.06,
+      });
 
-    gsap.from(paragraphSlit.lines, {
-      opacity: 0,
-      yPercent: 100,
-      duration: 1.8,
-      ease: "expo.out",
-      stagger: 0.06,
-      delay: 1,
+      gsap.from(paragraphSlit.lines, {
+        opacity: 0,
+        yPercent: 100,
+        duration: 1.8,
+        ease: "expo.out",
+        stagger: 0.06,
+        delay: 1,
+      });
     });
 
     gsap
