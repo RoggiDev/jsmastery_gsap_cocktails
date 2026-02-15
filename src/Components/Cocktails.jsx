@@ -1,6 +1,6 @@
+import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { cocktailLists, mockTailLists } from "../../constants";
-import gsap from "gsap";
 
 const Cocktails = () => {
   useGSAP(() => {
@@ -18,7 +18,7 @@ const Cocktails = () => {
         x: -100,
         y: 100,
       })
-      .from("c-right-leaf", {
+      .from("#c-right-leaf", {
         x: 100,
         y: 100,
       });

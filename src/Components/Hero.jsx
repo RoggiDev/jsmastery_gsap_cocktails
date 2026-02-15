@@ -42,7 +42,7 @@ const Hero = () => {
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: "hero",
+          trigger: "#hero",
           start: "top top",
           end: "bottom top",
           scrub: true,
